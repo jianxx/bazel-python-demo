@@ -1,0 +1,10 @@
+langchain
+openai
+google-search-results
+unstructured
+chromadb
+pinecone-client
+youtube-transcript-api
+pytube
+tiktoken
+GitPython

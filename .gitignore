@@ -161,3 +161,4 @@ cython_debug/
 
 # bazel
 bazel-*
+__init__.py

@@ -1,0 +1,29 @@
+load("@rules_python//python:defs.bzl", "py_binary", "py_library")
+
+py_library(
+    name = "langchain",
+    srcs = [
+        "__init__.py",
+        "demo.py",
+    ],
+    imports = [".."],
+    visibility = ["//:__subpackages__"],
+    deps = ["@pip//langchain"],
+)
+
+py_binary(
+    name = "langchain_bin",
+    srcs = ["__main__.py"],
+    imports = [".."],
+    main = "__main__.py",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        ":langchain",
+        "@pip//chromadb",
+        "@pip//langchain",
+        "@pip//openai",
+        "@pip//pytube",
+        "@pip//tiktoken",
+        "@pip//youtube_transcript_api",
+    ],  # keep
+)

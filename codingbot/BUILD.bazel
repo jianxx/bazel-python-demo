@@ -1,0 +1,28 @@
+load("@rules_python//python:defs.bzl", "py_binary", "py_library")
+
+py_library(
+    name = "codingbot",
+    srcs = [
+        "__init__.py",
+        "codingbot.py",
+    ],
+    imports = [".."],
+    visibility = ["//:__subpackages__"],
+    deps = ["@pip//langchain"],
+)
+
+py_binary(
+    name = "code_summary",
+    srcs = ["__main__.py"],
+    imports = [".."],
+    main = "__main__.py",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        ":codingbot",
+        "@pip//chromadb",
+        "@pip//gitpython",
+        "@pip//langchain",
+        "@pip//openai",
+        "@pip//tiktoken",
+    ],  # keep
+)

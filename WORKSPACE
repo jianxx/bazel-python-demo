@@ -1,5 +1,5 @@
 # Set the name of the bazel workspace.
-workspace(name = "python_bazel_boilerplate")
+workspace(name = "langchain_workspace")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
@@ -59,12 +59,12 @@ load("@rules_python//python:repositories.bzl", "python_register_toolchains")
 # This toolchain will allow bazel to download a specific python version, and use that version
 # for compilation.
 python_register_toolchains(
-    name = "python38",
-    python_version = "3.8",
+    name = "python310",
+    python_version = "3.10",
 )
 
 # Load the interpreter and pip_parse rules.
-load("@python38//:defs.bzl", "interpreter")
+load("@python310//:defs.bzl", "interpreter")
 load("@rules_python//python:pip.bzl", "pip_parse")
 
 # This macro wraps the `pip_repository` rule that invokes `pip`, with `incremental` set.
